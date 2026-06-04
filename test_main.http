@@ -1,11 +1,19 @@
-# Test your FastAPI endpoints
+# Test Takome AI reading assistant endpoints
 
-GET http://127.0.0.1:8000/
+GET http://127.0.0.1:8000/health
 Accept: application/json
 
 ###
 
-GET http://127.0.0.1:8000/hello/User
-Accept: application/json
+POST http://127.0.0.1:8000/v1/assistant/chat/stream
+Accept: text/event-stream
+Content-Type: application/json
+X-AI-Internal-Token: internal-check
+
+{
+  "user_id": "123",
+  "conversation_id": "dev",
+  "message": "帮我推荐几本小说"
+}
 
 ###
